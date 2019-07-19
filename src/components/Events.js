@@ -3,26 +3,27 @@ import React, { useContext } from 'react'
 import Event from './Event'
 import AppContext from '../contexts/AppContext'
 
-const Events = ({state, dispatch}) => {
-    const value = useContext(AppContext)
-    return (
-      <>
-        <h4>イベント一覧</h4>
-        <table className="table table-hover">
+const Events = () => {
+  const { state } = useContext(AppContext)
+
+  return (
+    <>
+      <h4>イベント一覧</h4>
+      <table className="table table-hover">
         <thead>
-            <tr>
+          <tr>
             <th>ID</th>
             <th>タイトル</th>
             <th>ボディー</th>
             <th></th>
-            </tr>
+          </tr>
         </thead>
         <tbody>
-            { state.map((event, index) => (<Event key={index} event={event} dispatch={dispatch} />))}
+          { state.map((event, index) => (<Event key={index} event={event} />))}
         </tbody>
-        </table>
-      </> 
-    )
+      </table>
+    </> 
+  )
 }
 
 export default Events
